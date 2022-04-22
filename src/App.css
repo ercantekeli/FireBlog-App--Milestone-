@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Girassol&display=swap');
 .App {
   text-align: center;
+  font-family: 'Akaya Telivigala', cursive;
+  font-family: 'Girassol', cursive;
 }
 
 .App-logo {
