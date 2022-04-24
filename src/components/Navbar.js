@@ -8,12 +8,18 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import CwLogo from "../assets/cw.jpeg"
+import CwLogo from "../assets/cw.jpeg";
+import { logOut } from '../helpers/firebase';
+
 
 export default function Navbar() {
     const navigate = useNavigate();
     // const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const currentUser = true
+
+    const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
     const handleMenu = (event) => {
@@ -27,7 +33,7 @@ export default function Navbar() {
     return (
         <Box sx={{ flexGrow: 1 }} >
             <AppBar position="static" >
-                <Toolbar style={{ backgroundColor: "#046582", display: "flex", justifyContent: "space-between"}}>
+                <Toolbar style={{ backgroundColor: "#046582", display: "flex", justifyContent: "space-between" }}>
                     <IconButton
                         size="large"
                         edge="start"
@@ -38,7 +44,7 @@ export default function Navbar() {
                     >
                         <img src={CwLogo} alt="clarusway logo" style={{ width: "2.75rem", height: "2.75rem" }} />
                     </IconButton>
-                    <Typography onClick={() => navigate("/dashboard")} style={{cursor:"pointer"}} variant="h6" component="div" >
+                    <Typography onClick={() => navigate("/dashboard")} style={{ cursor: "pointer" }} variant="h6" component="div" >
                         <h3>Ercan Blog</h3>
                     </Typography>
 
@@ -68,11 +74,57 @@ export default function Navbar() {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={() => navigate("/login")}>Login</MenuItem>
-                            <MenuItem onClick={() => navigate("/register")}>Register</MenuItem>
+                            {currentUser ? (
+                                <div>
+                                    <MenuItem
+                                        onClick={() => {
+                                            navigate("/profil");
+                                            setAnchorElUser(null);
+                                        }}
+                                    >
+                                        <Typography textAlign="center">Profile</Typography>
+                                    </MenuItem>
+                                    <MenuItem
+                                        onClick={() => {
+                                            navigate("/newblog");
+                                            setAnchorElUser(null);
+                                        }}
+                                    >
+                                        <Typography textAlign="center">New</Typography>
+                                    </MenuItem>
+                                    <MenuItem
+                                        onClick={() => {
+                                            logOut();
+                                            navigate("/");
+                                            setAnchorElUser(null);
+                                        }}
+                                    >
+                                        <Typography textAlign="center">Logout</Typography>
+                                    </MenuItem>
+                                </div>
+                            ) : (
+                                <div>
+                                    <MenuItem
+                                        onClick={() => {
+                                            navigate("/login");
+                                            setAnchorElUser(null);
+                                        }}
+                                    >
+                                        <Typography textAlign="center">Login</Typography>
+                                    </MenuItem>
+                                    <MenuItem
+                                        onClick={() => {
+                                            navigate("/register");
+                                            setAnchorElUser(null);
+                                        }}
+                                    >
+                                        <Typography textAlign="center">Register</Typography>
+                                    </MenuItem>
+                                </div>
+                            )}
                         </Menu>
                     </div>
-                
+
                 </Toolbar>
             </AppBar>
         </Box>

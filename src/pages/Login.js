@@ -14,8 +14,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
 import googleLogo from "../assets/google.png"
-import { signIn } from '../helpers/firebase';
-import {useState} from "react";
+import { signIn, signUpProvider } from '../helpers/firebase';
+import { useState } from "react";
 
 
 const style = {
@@ -38,6 +38,9 @@ export default function Login() {
         event.preventDefault();
         signIn(email, password, navigate)
     };
+    const handleProviderLogIn = () => {
+        signUpProvider(navigate)
+    }
 
     return (
         <div style={style}>
@@ -69,7 +72,7 @@ export default function Login() {
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
-                                onChange = {(e)=>setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <TextField
                                 margin="normal"
@@ -80,7 +83,7 @@ export default function Login() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                                onChange = {(e)=>setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
 
                             <Button
@@ -89,6 +92,7 @@ export default function Login() {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                                 style={{ backgroundColor: "#046582" }}
+
                             >
                                 Login
                             </Button>
@@ -97,6 +101,7 @@ export default function Login() {
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2, color: "black", backgroundColor: "white" }}
+                                onClick={handleProviderLogIn}
                             >
                                 WITH  <img src={googleLogo} alt="googleLogo" style={{ width: "6rem", height: "2rem", marginLeft: "1rem" }} />
                             </Button>

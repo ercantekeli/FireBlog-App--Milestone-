@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,8 +13,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
-import { createUser } from '../helpers/firebase';
-import {useState} from "react";
+import { createUser, signUpProvider } from '../helpers/firebase';
+import { useState } from "react";
+import googleLogo from "../assets/google.png"
 
 
 const style = {
@@ -35,6 +36,10 @@ export default function Register() {
         event.preventDefault();
         createUser(email, password, navigate)
     };
+
+    const handleProviderRegister = () => {
+        signUpProvider(navigate)
+    }
 
     return (
         <div style={style}>
@@ -66,7 +71,7 @@ export default function Register() {
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
-                                onChange = {(e)=>setEmail(e.target.value)}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                             <TextField
                                 margin="normal"
@@ -77,7 +82,7 @@ export default function Register() {
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
-                                onChange = {(e)=>setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
                             />
 
                             <Button
@@ -90,7 +95,16 @@ export default function Register() {
                             >
                                 REGISTER
                             </Button>
-                            
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2, color: "black", backgroundColor: "white" }}
+                                onClick={handleProviderRegister}
+                            >
+                                WITH  <img src={googleLogo} alt="googleLogo" style={{ width: "6rem", height: "2rem", marginLeft: "1rem" }} />
+                            </Button>
+
                         </form>
                     </Box>
 
