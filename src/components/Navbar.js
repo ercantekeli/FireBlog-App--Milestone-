@@ -10,13 +10,17 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import CwLogo from "../assets/cw.jpeg";
 import { logOut } from '../helpers/firebase';
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/AuthContext';
 
 
 export default function Navbar() {
     const navigate = useNavigate();
+    const { currentUser } = useContext(AuthContext);
+
     // const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const currentUser = true
+
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -78,7 +82,7 @@ export default function Navbar() {
                                 <div>
                                     <MenuItem
                                         onClick={() => {
-                                            navigate("/profil");
+                                            navigate("/profile");
                                             setAnchorElUser(null);
                                         }}
                                     >
@@ -90,7 +94,7 @@ export default function Navbar() {
                                             setAnchorElUser(null);
                                         }}
                                     >
-                                        <Typography textAlign="center">New</Typography>
+                                        <Typography textAlign="center">New Blog</Typography>
                                     </MenuItem>
                                     <MenuItem
                                         onClick={() => {

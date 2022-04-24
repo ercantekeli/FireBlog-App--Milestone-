@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 
 // TODO: Replace the following with your app's Firebase project configuration
 // See: https://firebase.google.com/docs/web/learn-more#config-object
@@ -36,6 +36,7 @@ export const createUser = async (email, password, navigate) => {
             email,
             password
         );
+
         navigate("/login");
         console.log(userCredential);
     } catch (err) {
@@ -79,7 +80,7 @@ export const signUpProvider = (navigate) => {
 
     const provider = new GoogleAuthProvider();
 
-    const auth = getAuth();
+
     signInWithPopup(auth, provider)
         .then((result) => {
             console.log(result)
