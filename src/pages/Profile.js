@@ -15,7 +15,7 @@ export default function Profile() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: '30rem',
-                height: '20rem',
+                height: '30rem',
                 textAlign: 'center',
                 margin: 'auto',
                 marginTop: '10rem',
@@ -23,7 +23,7 @@ export default function Profile() {
             }}
         >
             <CardContent>
-                <CardMedia component="img" height="100" image={currentUser?.photoURL} alt="profile" />
+                <CardMedia component="img" height="200" image={currentUser?.photoURL} alt="profile" />
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                     Display Name
                 </Typography>
