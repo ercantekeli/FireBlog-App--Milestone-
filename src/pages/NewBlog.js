@@ -7,7 +7,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
 import { signIn, signUpProvider } from '../helpers/firebase';
-import { useState } from "react";
+import { useState, useContext } from "react";
+// import { AddNewBlog } from '../contexts/BlogContext';
+import { BlogContext } from '../contexts/BlogContext';
 
 
 const style = {
@@ -21,18 +23,26 @@ const style = {
   position: "relative"
 };
 
-export default function Login() {
+export default function NewBlog() {
   const navigate = useNavigate();
   const [title, setTitle] = useState()
   const [imageURL, setImageURL] = useState()
   const [textArea, setTextArea] = useState()
+  const [info, setInfo] = useState()
+  const { AddNewBlog } = useContext(BlogContext);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    signIn(email, password, navigate)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    AddNewBlog(info)
   };
   const handleProviderLogIn = () => {
     signUpProvider(navigate)
+  }
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setInfo({ ...info, [name]: value })
   }
 
   return (
@@ -64,7 +74,7 @@ export default function Login() {
                 label="Title"
                 name="title"
                 autoFocus
-                onChange={(e) => setTitle(e.target.value)}
+                onChange={handleChange}
               />
               <TextField
                 margin="normal"
@@ -74,7 +84,7 @@ export default function Login() {
                 label="Image URL"
                 type="url"
                 id="imageURL"
-                onChange={(e) => setImageURL(e.target.value)}
+                onChange={handleChange}
               />
 
               <TextField
@@ -83,11 +93,11 @@ export default function Login() {
                 minRows={10}
                 required
                 fullWidth
-                name="password"
-                label="Content"
+                name="content"
+                label="content"
                 type="textarea"
-                id="imageURL"
-                onChange={(e) => setTextArea(e.target.value)}
+                id="content"
+                onChange={handleChange}
               />
 
               <Button
