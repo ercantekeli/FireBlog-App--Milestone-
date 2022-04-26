@@ -41,7 +41,7 @@ export default function BlogCard({ item, index }) {
                 component="img"
                 height="100"
                 image={item.imageURL}
-                alt="Paella dish"
+                alt="blog photo"
                 objectfit="contain"
             />
             <CardContent>

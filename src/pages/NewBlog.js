@@ -25,9 +25,6 @@ const style = {
 
 export default function NewBlog() {
   const navigate = useNavigate();
-  const [title, setTitle] = useState()
-  const [imageURL, setImageURL] = useState()
-  const [textArea, setTextArea] = useState()
   const [info, setInfo] = useState()
   const { AddNewBlog } = useContext(BlogContext);
 
