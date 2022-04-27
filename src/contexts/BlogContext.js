@@ -63,7 +63,7 @@ const BlogContextProvider = ({ children }) => {
 
 
     //!Bilgi Değiştirme
-    const EditBlog = (info) => {
+    const UpdateBlog = (info) => {
         const database = getDatabase();
         const updates = {};
 
@@ -74,7 +74,7 @@ const BlogContextProvider = ({ children }) => {
 
 
     return (
-        <BlogContext.Provider value={{ BlogFetch, AddNewBlog, DeleteBlog }}>
+        <BlogContext.Provider value={{ BlogFetch, AddNewBlog, DeleteBlog, UpdateBlog }}>
             {children}
         </BlogContext.Provider>
     )

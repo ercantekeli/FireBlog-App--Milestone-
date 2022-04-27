@@ -26,12 +26,12 @@ const style = {
 export default function NewBlog() {
   const navigate = useNavigate();
   const [info, setInfo] = useState()
-  const { AddNewBlog } = useContext(BlogContext);
+  const { AddNewBlog, UpdateBlog } = useContext(BlogContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (info.id) {
-      EditUser(info)
+      UpdateBlog(info)
     }
     else {
       AddNewBlog(info)
