@@ -3,6 +3,7 @@ import BlogCard from '../components/BlogCard'
 // import BlogFetch from "../contexts/BlogContext"
 import { useContext } from "react"
 import { BlogContext } from '../contexts/BlogContext';
+import loadingGif from "../assets/loading.gif"
 
 const Dashboard = () => {
   const { BlogFetch } = useContext(BlogContext);
@@ -22,12 +23,17 @@ const Dashboard = () => {
           justifyContent: "center",
         }}
       >
-        {
-          blogList?.map((item, index) => (
+        {isLoading ? <img src={loadingGif} alt="loading gif" /> : <>
 
-            <BlogCard item={item} index={index} />
-          ))
-        }
+          {
+            blogList?.map((item) => (
+
+              <BlogCard item={item} key={item.id} />
+            ))
+          }
+
+        </>}
+
 
       </div>
 

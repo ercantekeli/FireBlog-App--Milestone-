@@ -44,11 +44,11 @@ export default function Navbar() {
                         color="inherit"
                         aria-label="menu"
                         sx={{ mr: 2 }}
-                        onClick={() => navigate("/dashboard")}
+                        onClick={() => navigate("/")}
                     >
                         <img src={CwLogo} alt="clarusway logo" style={{ width: "2.75rem", height: "2.75rem" }} />
                     </IconButton>
-                    <Typography onClick={() => navigate("/dashboard")} style={{ cursor: "pointer" }} variant="h6" component="div" >
+                    <Typography onClick={() => navigate("/")} style={{ cursor: "pointer" }} variant="h6" component="div" >
                         <h3>Ercan Blog</h3>
                     </Typography>
 

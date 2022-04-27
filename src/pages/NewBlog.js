@@ -30,10 +30,22 @@ export default function NewBlog() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    AddNewBlog(info)
+    if (info.id) {
+      EditUser(info)
+    }
+    else {
+      AddNewBlog(info)
+      navigate("/")
+    }
+
   };
+
   const handleProviderLogIn = () => {
     signUpProvider(navigate)
+  }
+
+  const editBlog = (id, title, imageURL, content) => {
+    setInfo({ id, title, imageURL, content })
   }
 
   const handleChange = (e) => {

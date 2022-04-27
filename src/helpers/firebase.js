@@ -52,7 +52,7 @@ export const signIn = async (email, password, navigate) => {
             email,
             password
         );
-        navigate("/dashboard");
+        navigate("/");
         console.log(userCredential);
     } catch (err) {
         alert(err.message);
@@ -84,7 +84,7 @@ export const signUpProvider = (navigate) => {
     signInWithPopup(auth, provider)
         .then((result) => {
             console.log(result)
-            navigate("/dashboard")
+            navigate("/")
         }).catch((error) => {
             console.log(error)
         });

@@ -11,16 +11,19 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 
-export default function BlogCard({ item, index }) {
+export default function BlogCard({ item }) {
     const { currentUser } = useContext(AuthContext);
-
+    let navigate = useNavigate();
     const [likeNumber, setLikeNumber] = useState(0);
     const [likeColor, setLikeColor] = useState();
     const [click, setClick] = useState(true);
     // const { title, imageURL, content, author } = item;
-    console.log(item)
+
+
+
 
     ///like make red and +1 function
     const handleLike = () => {
@@ -35,11 +38,15 @@ export default function BlogCard({ item, index }) {
         }
     };
 
+    const handleClick = () => {
+        navigate("/details", { state: { item } });
+    }
+
     return (
-        <Card sx={{ width: 300, height: 500 }}>
+        <Card sx={{ width: 300, height: 500 }} onClick={handleClick}>
             <CardMedia
                 component="img"
-                height="100"
+                height="230"
                 image={item.imageURL}
                 alt="blog photo"
                 objectfit="contain"
@@ -63,7 +70,7 @@ export default function BlogCard({ item, index }) {
                         }}
                     >
                         <h3>{item.title}</h3>
-                        <h6 style={{ color: "grey" }}>Date Here</h6>
+                        <h6 style={{ color: "grey" }}>{item.date}</h6>
                     </div>
                     {item.content}
                 </Typography>
