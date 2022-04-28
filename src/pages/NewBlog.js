@@ -22,8 +22,8 @@ const style = {
   backgroundPosition: "center",
   backgroundImageRepeat: "no-repeat",
   backgroundSize: "cover",
-  height: "100vh",
-  position: "relative"
+  height: "88.2vh",
+  padding: "1rem"
 };
 
 export default function NewBlog() {

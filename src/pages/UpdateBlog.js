@@ -6,21 +6,18 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
-import { signIn, signUpProvider } from '../helpers/firebase';
 import { useState, useContext } from "react";
-// import { AddNewBlog } from '../contexts/BlogContext';
 import { BlogContext } from '../contexts/BlogContext';
 import { useLocation } from "react-router"
 
 const style = {
-    // backgroundImage: `url("https://picsum.photos/1200/900")`,
-    // marginTop: "150px",
+
     boxSizing: "border-box",
     backgroundPosition: "center",
     backgroundImageRepeat: "no-repeat",
     backgroundSize: "cover",
-    height: "100vh",
-    position: "relative"
+    height: "88.2vh",
+    padding: "1rem"
 };
 
 const UpdateBlog = () => {

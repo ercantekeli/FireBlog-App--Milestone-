@@ -20,7 +20,7 @@ export default function BlogCard({ item }) {
     const [likeNumber, setLikeNumber] = useState(0);
     const [likeColor, setLikeColor] = useState();
     const [click, setClick] = useState(true);
-    // const { title, imageURL, content, author } = item;
+
 
 
 
