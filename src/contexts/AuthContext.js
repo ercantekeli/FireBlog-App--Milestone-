@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { createContext, useEffect, useState } from "react";
 import { userObserver } from "../contexts/AuthContext";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
+import Toastify from "../helpers/toastNotify";
 
 export const AuthContext = createContext()
 
@@ -33,8 +34,9 @@ const AuthContextProvider = ({ children }) => {
                 email,
                 password
             );
-
+            Toastify("User Created")
             navigate("/login");
+
             console.log(userCredential);
         } catch (err) {
             alert(err.message);
@@ -50,6 +52,7 @@ const AuthContextProvider = ({ children }) => {
                 password
             );
             navigate("/");
+            Toastify("Logged in successfully")
             console.log(userCredential);
         } catch (err) {
             alert(err.message);
@@ -59,7 +62,8 @@ const AuthContextProvider = ({ children }) => {
 
     const logOut = () => {
         signOut(auth)
-        alert("log outed succesfully")
+        Toastify("Logged out successfully")
+
     }
 
     const userObserver = (setCurrentUser) => {
@@ -82,6 +86,7 @@ const AuthContextProvider = ({ children }) => {
             .then((result) => {
                 console.log(result)
                 navigate("/")
+                Toastify("Logged in successfully")
             }).catch((error) => {
                 console.log(error)
             });

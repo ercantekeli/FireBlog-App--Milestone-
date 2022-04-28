@@ -23,7 +23,7 @@ const Details = () => {
     const navigate = useNavigate()
     const [click, setClick] = useState(true);
     const { currentUser } = useContext(AuthContext);
-    const { DeleteBlog, EditBlog } = useContext(BlogContext);
+    const { DeleteBlog } = useContext(BlogContext);
 
     // const { id } = item.id;
     // console.log(item)
@@ -97,10 +97,16 @@ const Details = () => {
                     </IconButton>
                     <span>1</span>
                 </CardActions>
-                <div style={{ display: "flex", justifyContent: "space-around" }}>
-                    <button onClick={handleUpdate}>update</button>
-                    <button onClick={() => { handleDelete(item.id) }}>delete</button>
-                </div>
+                {(currentUser.email) == (item.author) ?
+                    <>
+                        <div style={{ display: "flex", justifyContent: "space-around" }}>
+                            <button onClick={handleUpdate}>update</button>
+                            <button onClick={() => { handleDelete(item.id) }}>delete</button>
+                        </div>
+                    </>
+                    : ""
+                }
+
 
 
 
