@@ -9,14 +9,14 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import CwLogo from "../assets/cw.jpeg";
-import { logOut } from '../helpers/firebase';
+import { logOut } from '../contexts/AuthContext';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 
 
 export default function Navbar() {
     const navigate = useNavigate();
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser, logOut } = useContext(AuthContext);
 
     // const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);

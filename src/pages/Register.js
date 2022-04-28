@@ -13,7 +13,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
-import { createUser, signUpProvider } from '../helpers/firebase';
+import { createUser, signUpProvider } from '../contexts/AuthContext';
 import { useState } from "react";
 import googleLogo from "../assets/google.png"
 
@@ -24,13 +24,15 @@ const style = {
     boxSizing: "border-box",
     backgroundImageRepeat: "no-repeat",
     // backgroundImage: "cover",
-    height: "100vh"
+    height: "88.2vh",
+    padding: "1rem"
 };
 
 export default function Register() {
     const navigate = useNavigate();
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const { createUser, signUpProvider } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -47,7 +49,7 @@ export default function Register() {
                 <CssBaseline />
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 0,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',

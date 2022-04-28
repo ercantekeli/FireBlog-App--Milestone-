@@ -36,8 +36,9 @@ const Details = () => {
         navigate("/updateblog", { state: { item } });
     }
     return (
-        <div>
-            <Card sx={{ width: 700, height: 900 }}>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+            <h1 className="dash-text" style={{ textAlign: "center" }}>──── Details ────</h1>
+            <Card sx={{ width: 1000, height: 600 }}>
                 <CardMedia
                     component="img"
                     height="230"
@@ -96,9 +97,11 @@ const Details = () => {
                     </IconButton>
                     <span>1</span>
                 </CardActions>
+                <div style={{ display: "flex", justifyContent: "space-around" }}>
+                    <button onClick={handleUpdate}>update</button>
+                    <button onClick={() => { handleDelete(item.id) }}>delete</button>
+                </div>
 
-                <button onClick={handleUpdate}>update</button>
-                <button onClick={() => { handleDelete(item.id) }}>delete</button>
 
 
             </Card>

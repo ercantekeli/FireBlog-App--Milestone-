@@ -68,7 +68,7 @@ const BlogContextProvider = ({ children }) => {
         const updates = {};
 
         updates["milestone/" + info.id] = info;
-        return update(ref(database, updates))
+        return update(ref(database), updates)
     }
 
 

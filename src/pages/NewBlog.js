@@ -6,10 +6,13 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
-import { signIn, signUpProvider } from '../helpers/firebase';
+import { signIn, signUpProvider } from '../contexts/AuthContext';
 import { useState, useContext } from "react";
 // import { AddNewBlog } from '../contexts/BlogContext';
 import { BlogContext } from '../contexts/BlogContext';
+import { AuthContext } from '../contexts/AuthContext';
+
+
 
 
 const style = {
@@ -27,6 +30,7 @@ export default function NewBlog() {
   const navigate = useNavigate();
   const [info, setInfo] = useState()
   const { AddNewBlog, UpdateBlog } = useContext(BlogContext);
+  const { signUpProvider } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -27,41 +27,24 @@ const UpdateBlog = () => {
 
     const location = useLocation();
     const item = location.state.item;
-
-    const initialValues = {
-        title: item.title,
-        content: item.content,
-        imageURL: item.imageURL,
-        id: item.id
-    }
-
     const navigate = useNavigate();
+    const initialValues = { ...item };
+
+    // console.log(item)
+
+    const { UpdateBlog } = useContext(BlogContext);
     const [info, setInfo] = useState(initialValues)
-    const { AddNewBlog, UpdateBlog, BlogFetch } = useContext(BlogContext);
+
 
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (item) {
-            UpdateBlog(title, imageURL, content)
-            setInfo({ title, imageURL, content })
-            navigate("/")
-        }
-        else {
-            AddNewBlog(info)
-            navigate("/")
-        }
+        UpdateBlog(info)
+        navigate("/")
 
     };
 
-
-
-
-
-    // const UpdateBlog = (id, title, imageURL, content) => {
-    //     setInfo({ id, title, imageURL, content })
-    // }
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -82,7 +65,10 @@ const UpdateBlog = () => {
                         flexDirection: 'column',
                         alignItems: 'center',
 
+
+
                     }}
+                    onSubmit={handleSubmit}
                 >
 
                     <img src={blog} alt="login_blog" style={{ width: "200px", height: "200px", margin: "1rem", padding: "0.5rem", backgroundColor: "#046582", borderRadius: "50%" }} />
@@ -90,8 +76,8 @@ const UpdateBlog = () => {
                     <Typography component="h1" variant="h5">
                         ── Update Blog ──
                     </Typography>
-                    <Box noValidate sx={{ mt: 1 }}>
-                        <form id="register" action="" onSubmit={handleSubmit}>
+                    <Box noValidate sx={{ mt: 1 }} >
+                        <form id="register" action="" >
                             <TextField
                                 margin="normal"
                                 required
@@ -135,6 +121,7 @@ const UpdateBlog = () => {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                                 style={{ backgroundColor: "#046582" }}
+
 
                             >
                                 SUBMIT

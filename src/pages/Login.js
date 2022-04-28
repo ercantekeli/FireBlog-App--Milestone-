@@ -7,8 +7,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
 import googleLogo from "../assets/google.png"
-import { signIn, signUpProvider } from '../helpers/firebase';
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from '../contexts/AuthContext';
+
 
 
 const style = {
@@ -18,14 +19,15 @@ const style = {
     backgroundPosition: "center",
     backgroundImageRepeat: "no-repeat",
     backgroundSize: "cover",
-    height: "100vh",
-    position: "relative"
+    height: "88.2vh",
+    padding: "1rem"
 };
 
 export default function Login() {
     const navigate = useNavigate();
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const { signIn, signUpProvider } = useContext(AuthContext);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -41,7 +43,7 @@ export default function Login() {
                 {/* <CssBaseline /> */}
                 <Box
                     sx={{
-                        marginTop: 8,
+                        marginTop: 0,
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
