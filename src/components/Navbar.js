@@ -37,7 +37,7 @@ export default function Navbar() {
     return (
         <Box sx={{ flexGrow: 1 }} >
             <AppBar position="static" >
-                <Toolbar style={{ backgroundColor: "#046582", display: "flex", justifyContent: "space-around" }}>
+                <Toolbar style={{ backgroundColor: "#046582", display: "flex", justifyContent: "space-between" }}>
                     <IconButton
                         size="large"
                         edge="start"
@@ -46,89 +46,92 @@ export default function Navbar() {
                         sx={{ mr: 2 }}
                         onClick={() => navigate("/")}
                     >
-                        <img src={ErcanLogo} alt="clarusway logo" style={{ width: "5rem", height: "5rem" }} />
+                        <img src={ErcanLogo} alt="ercan logo" style={{ width: "5rem", height: "5rem" }} />
                     </IconButton>
                     <Typography onClick={() => navigate("/")} style={{ margin: "auto", display: "block", cursor: "pointer", position: "static" }} variant="h6" component="div" >
-                        <h3 style={{}}><span>Ercan</span> Blog</h3>
+                        <h2 ><span style={{ color: "#F5DEB3", fontFamily: "Girassol" }}> Ercan</span> Blog</h2>
+                    </Typography>
+                    <Typography sx={{ display: { xs: 'none', sm: 'none', md: 'none' } }}>
+                        {currentUser?.displayName ? <span style={{ position: "absolute", right: "5rem", top: "2.5rem" }}>{currentUser?.displayName}</span> : ""}
                     </Typography>
 
-                    <div> {currentUser?.displayName ? <span style={{ position: "absolute", right: "5rem", top: "2.5rem" }}>{currentUser?.displayName}</span> : ""}
-                        <IconButton
-                            size="large"
-                            aria-label="account of current user"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleMenu}
-                            color="inherit"
-                        >
-                            <AccountCircle />
 
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorEl}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorEl)}
-                            onClose={handleClose}
-                        >
-                            {currentUser ? (
-                                <div>
-                                    <MenuItem
-                                        onClick={() => {
-                                            navigate("/profile");
-                                            setAnchorElUser(null);
-                                        }}
-                                    >
-                                        <Typography textAlign="center">Profile</Typography>
-                                    </MenuItem>
-                                    <MenuItem
-                                        onClick={() => {
-                                            navigate("/newblog");
-                                            setAnchorElUser(null);
-                                        }}
-                                    >
-                                        <Typography textAlign="center">New Blog</Typography>
-                                    </MenuItem>
-                                    <MenuItem
-                                        onClick={() => {
-                                            logOut();
-                                            navigate("/");
-                                            setAnchorElUser(null);
-                                        }}
-                                    >
-                                        <Typography textAlign="center">Logout</Typography>
-                                    </MenuItem>
-                                </div>
-                            ) : (
-                                <div>
-                                    <MenuItem
-                                        onClick={() => {
-                                            navigate("/login");
-                                            setAnchorElUser(null);
-                                        }}
-                                    >
-                                        <Typography textAlign="center">Login</Typography>
-                                    </MenuItem>
-                                    <MenuItem
-                                        onClick={() => {
-                                            navigate("/register");
-                                            setAnchorElUser(null);
-                                        }}
-                                    >
-                                        <Typography textAlign="center">Register</Typography>
-                                    </MenuItem>
-                                </div>
-                            )}
-                        </Menu>
-                    </div>
+                    <IconButton
+                        size="large"
+                        aria-label="account of current user"
+                        aria-controls="menu-appbar"
+                        aria-haspopup="true"
+                        onClick={handleMenu}
+                        color="inherit"
+                    >
+                        <AccountCircle />
+
+                    </IconButton>
+                    <Menu
+                        id="menu-appbar"
+                        anchorEl={anchorEl}
+                        anchorOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        keepMounted
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'right',
+                        }}
+                        open={Boolean(anchorEl)}
+                        onClose={handleClose}
+                    >
+                        {currentUser ? (
+                            <div>
+                                <MenuItem
+                                    onClick={() => {
+                                        navigate("/profile");
+                                        setAnchorElUser(null);
+                                    }}
+                                >
+                                    <Typography textAlign="center">Profile</Typography>
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={() => {
+                                        navigate("/newblog");
+                                        setAnchorElUser(null);
+                                    }}
+                                >
+                                    <Typography textAlign="center">New Blog</Typography>
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={() => {
+                                        logOut();
+                                        navigate("/");
+                                        setAnchorElUser(null);
+                                    }}
+                                >
+                                    <Typography textAlign="center">Logout</Typography>
+                                </MenuItem>
+                            </div>
+                        ) : (
+                            <div>
+                                <MenuItem
+                                    onClick={() => {
+                                        navigate("/login");
+                                        setAnchorElUser(null);
+                                    }}
+                                >
+                                    <Typography textAlign="center">Login</Typography>
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={() => {
+                                        navigate("/register");
+                                        setAnchorElUser(null);
+                                    }}
+                                >
+                                    <Typography textAlign="center">Register</Typography>
+                                </MenuItem>
+                            </div>
+                        )}
+                    </Menu>
+
 
                 </Toolbar>
             </AppBar>

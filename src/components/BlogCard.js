@@ -40,20 +40,22 @@ export default function BlogCard({ item }) {
     };
 
     const handleClick = () => {
-        { currentUser ? navigate("/details", { state: { item } }) : navigate("login"), Toastify("To see details, Please log in") }
+        console.log(currentUser)
+        { (currentUser) ? (navigate("/details", { state: { item } })) : (navigate("login"), Toastify("To see details, Please log in")) }
 
     }
 
     return (
-        <Card sx={{ width: 300, height: 500 }} onClick={handleClick}>
+        <Card sx={{ width: 300, height: 500 }} >
             <CardMedia
                 component="img"
                 height="230"
                 image={item.imageURL}
                 alt="blog photo"
                 objectfit="contain"
+                onClick={handleClick}
             />
-            <CardContent style={{ padding: "0px" }}>
+            <CardContent style={{ padding: "0px" }} onClick={handleClick}>
                 <Typography
                     variant="body2"
                     color="text.secondary"

@@ -37,16 +37,29 @@ const Details = () => {
     const handleUpdate = () => {
         navigate("/updateblog", { state: { item } });
     }
+
+    const handleLike = () => {
+        if (click) {
+            setLikeNumber(likeNumber + 1);
+            setLikeColor("red");
+            setClick(!click);
+        } else {
+            setLikeNumber(likeNumber - 1);
+            setLikeColor();
+            setClick(!click);
+        }
+    };
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
             <h1 className="dash-text" style={{ textAlign: "center" }}>──── Details ────</h1>
-            <Card sx={{ width: 1000, height: 800 }}>
+            <Card sx={{ width: "80%", height: "80%" }}>
                 <CardMedia
                     component="img"
-                    height="400"
+                    height="100%"
                     image={item.imageURL}
                     alt="blog photo"
                     objectfit="contain"
+
                 />
                 <CardContent style={{ padding: "0" }}>
                     <Typography
