@@ -12,6 +12,7 @@ import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
+import Toastify from "../helpers/toastNotify";
 
 
 export default function BlogCard({ item }) {
@@ -39,7 +40,8 @@ export default function BlogCard({ item }) {
     };
 
     const handleClick = () => {
-        navigate("/details", { state: { item } });
+        { currentUser ? navigate("/details", { state: { item } }) : navigate("login"), Toastify("To see details, Please log in") }
+
     }
 
     return (

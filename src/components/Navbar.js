@@ -8,7 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import CwLogo from "../assets/cw.jpeg";
+import ErcanLogo from "../assets/ercan.png";
 import { logOut } from '../contexts/AuthContext';
 import { useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
@@ -46,13 +46,13 @@ export default function Navbar() {
                         sx={{ mr: 2 }}
                         onClick={() => navigate("/")}
                     >
-                        <img src={CwLogo} alt="clarusway logo" style={{ width: "2.75rem", height: "2.75rem" }} />
+                        <img src={ErcanLogo} alt="clarusway logo" style={{ width: "5rem", height: "5rem" }} />
                     </IconButton>
                     <Typography onClick={() => navigate("/")} style={{ margin: "auto", display: "block", cursor: "pointer", position: "static" }} variant="h6" component="div" >
                         <h3 style={{}}><span>Ercan</span> Blog</h3>
                     </Typography>
 
-                    <div> {currentUser?.displayName ? <span style={{ alignSelf: "center" }}>{currentUser?.displayName}</span> : <span style={{ alignSelf: "flex-end" }}>{currentUser?.email}</span>}
+                    <div> {currentUser?.displayName ? <span style={{ position: "absolute", right: "5rem", top: "2.5rem" }}>{currentUser?.displayName}</span> : ""}
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -62,6 +62,7 @@ export default function Navbar() {
                             color="inherit"
                         >
                             <AccountCircle />
+
                         </IconButton>
                         <Menu
                             id="menu-appbar"
