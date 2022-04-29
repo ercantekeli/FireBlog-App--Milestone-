@@ -46,7 +46,7 @@ export default function BlogCard({ item }) {
     }
 
     return (
-        <Card sx={{ width: 300, height: 500 }} >
+        <Card sx={{ width: 300, height: 500 }} style={{ borderRadius: "10px", boxShadow: "rgba(0, 0, 0, 0.75) 10px 10px 5px 2px", backgroundColor: "#fff", position: "relative" }} >
             <CardMedia
                 component="img"
                 height="230"
