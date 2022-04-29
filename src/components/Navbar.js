@@ -52,7 +52,7 @@ export default function Navbar() {
                         <h3>Ercan Blog</h3>
                     </Typography>
 
-                    <div>
+                    <div> {currentUser?.displayName ? <span style={{ alignSelf: "flex-end" }}>{currentUser?.displayName}</span> : ""}
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -131,6 +131,6 @@ export default function Navbar() {
 
                 </Toolbar>
             </AppBar>
-        </Box>
+        </Box >
     );
 }

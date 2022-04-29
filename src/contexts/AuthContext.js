@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { createContext, useEffect, useState } from "react";
-import { userObserver } from "../contexts/AuthContext";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, updateProfile } from "firebase/auth";
 import Toastify from "../helpers/toastNotify";
 

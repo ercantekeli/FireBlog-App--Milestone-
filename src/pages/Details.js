@@ -12,6 +12,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import { AuthContext } from "../contexts/AuthContext";
 import { BlogContext } from "../contexts/BlogContext";
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 
@@ -99,10 +101,16 @@ const Details = () => {
                 </CardActions>
                 {(currentUser.email) == (item.author) ?
                     <>
-                        <div style={{ display: "flex", justifyContent: "space-around" }}>
+                        <Stack direction="row" spacing={2} style={{ display: "flex", justifyContent: "space-evenly" }}>
+                            <Button variant="contained" color="primary" onClick={handleUpdate}>Update</Button>
+                            <Button variant="contained" color="error" onClick={() => { handleDelete(item.id) }}>
+                                Delete
+                            </Button>
+                        </Stack>
+                        {/* <div style={{ display: "flex", justifyContent: "space-around" }}>
                             <button onClick={handleUpdate}>update</button>
                             <button onClick={() => { handleDelete(item.id) }}>delete</button>
-                        </div>
+                        </div> */}
                     </>
                     : ""
                 }
@@ -116,3 +124,13 @@ const Details = () => {
 };
 
 export default Details;
+
+{/* <Stack direction="row" spacing={2}>
+    <Button color="secondary">Secondary</Button>
+    <Button variant="contained" color="success">
+        Success
+    </Button>
+    <Button variant="outlined" color="error">
+        Error
+    </Button>
+</Stack> */}

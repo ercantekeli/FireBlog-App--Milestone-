@@ -60,6 +60,7 @@ export default function BlogCard({ item }) {
                         backgroundColor: "#EFEEFE",
                         padding: "0.5rem",
                         fontFamily: "Girassol",
+                        height: "50%"
                     }}
                 >
                     <div
@@ -67,12 +68,13 @@ export default function BlogCard({ item }) {
                             paddingTop: "1rem",
                             textAlign: "center",
                             color: "#046582",
+                            height: "50%"
                         }}
                     >
                         <h3>{item.title}</h3>
                         <h6 style={{ color: "grey" }}>{item.date}</h6>
                     </div>
-                    {item.content}
+                    {`${item.content}`.substring(0, 70) + "..."}
                 </Typography>
 
                 <Typography
