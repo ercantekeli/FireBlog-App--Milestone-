@@ -51,7 +51,7 @@ export default function BlogCard({ item }) {
                 alt="blog photo"
                 objectfit="contain"
             />
-            <CardContent>
+            <CardContent style={{ padding: "0px" }}>
                 <Typography
                     variant="body2"
                     color="text.secondary"
@@ -59,7 +59,7 @@ export default function BlogCard({ item }) {
                         display: "block",
                         backgroundColor: "#EFEEFE",
                         padding: "0.5rem",
-                        fontFamily: "Girassol",
+                        // fontFamily: "Girassol",
                         height: "50%"
                     }}
                 >
@@ -68,13 +68,16 @@ export default function BlogCard({ item }) {
                             paddingTop: "1rem",
                             textAlign: "center",
                             color: "#046582",
-                            height: "50%"
+                            height: "50%",
+
                         }}
                     >
-                        <h3>{item.title}</h3>
-                        <h6 style={{ color: "grey" }}>{item.date}</h6>
+                        <h2>{`${item.title}`.substring(0, 20) + ""}</h2>
+                        <h5 style={{ color: "grey", margin: "0.5rem" }}>{item.date}</h5>
+                        <h4>{`${item.content}`.substring(0, 20) + "..."}</h4>
                     </div>
-                    {`${item.content}`.substring(0, 70) + "..."}
+
+
                 </Typography>
 
                 <Typography
@@ -82,10 +85,11 @@ export default function BlogCard({ item }) {
                     color="text.secondary"
                     sx={{ color: "black", textAlign: "start", mt: 2 }}
                 >
-                    <IconButton sx={{ color: "black", p: 0 }}>
+                    <IconButton sx={{ color: "black", fontSize: "small" }}>
                         <AccountCircleIcon fontSize="small" />
+                        {item.author}
                     </IconButton>
-                    {item.author}
+
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>

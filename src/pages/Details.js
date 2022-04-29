@@ -40,15 +40,15 @@ const Details = () => {
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
             <h1 className="dash-text" style={{ textAlign: "center" }}>──── Details ────</h1>
-            <Card sx={{ width: 1000, height: 600 }}>
+            <Card sx={{ width: 1000, height: 800 }}>
                 <CardMedia
                     component="img"
-                    height="230"
+                    height="400"
                     image={item.imageURL}
                     alt="blog photo"
                     objectfit="contain"
                 />
-                <CardContent>
+                <CardContent style={{ padding: "0" }}>
                     <Typography
                         variant="body2"
                         color="text.secondary"
@@ -56,7 +56,9 @@ const Details = () => {
                             display: "block",
                             backgroundColor: "#EFEEFE",
                             padding: "0.5rem",
-                            fontFamily: "Girassol",
+                            // fontFamily: "Girassol",
+                            height: "250",
+
                         }}
                     >
                         <div
@@ -66,10 +68,11 @@ const Details = () => {
                                 color: "#046582",
                             }}
                         >
-                            <h3>{item.title}</h3>
-                            <h6 style={{ color: "grey" }}>{item.date}</h6>
+                            <h1>{item.title}</h1>
+                            <h4 style={{ color: "grey" }}>{item.date}</h4>
+                            <h3 style={{ color: "grey", wordWrap: "break-word" }}>{item.content}</h3>
                         </div>
-                        {item.content}
+
                     </Typography>
 
                     <Typography
@@ -77,10 +80,10 @@ const Details = () => {
                         color="text.secondary"
                         sx={{ color: "black", textAlign: "start", mt: 2 }}
                     >
-                        <IconButton sx={{ color: "black", p: 0 }}>
+                        <IconButton sx={{ color: "black", fontSize: "medium" }}>
                             <AccountCircleIcon fontSize="small" />
+                            {item.author}
                         </IconButton>
-                        {item.author}
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
@@ -119,7 +122,7 @@ const Details = () => {
 
 
             </Card>
-        </div>
+        </div >
     );
 };
 

@@ -37,7 +37,7 @@ export default function Navbar() {
     return (
         <Box sx={{ flexGrow: 1 }} >
             <AppBar position="static" >
-                <Toolbar style={{ backgroundColor: "#046582", display: "flex", justifyContent: "space-between" }}>
+                <Toolbar style={{ backgroundColor: "#046582", display: "flex", justifyContent: "space-around" }}>
                     <IconButton
                         size="large"
                         edge="start"
@@ -48,11 +48,11 @@ export default function Navbar() {
                     >
                         <img src={CwLogo} alt="clarusway logo" style={{ width: "2.75rem", height: "2.75rem" }} />
                     </IconButton>
-                    <Typography onClick={() => navigate("/")} style={{ cursor: "pointer" }} variant="h6" component="div" >
-                        <h3>Ercan Blog</h3>
+                    <Typography onClick={() => navigate("/")} style={{ margin: "auto", display: "block", cursor: "pointer", position: "static" }} variant="h6" component="div" >
+                        <h3 style={{}}><span>Ercan</span> Blog</h3>
                     </Typography>
 
-                    <div> {currentUser?.displayName ? <span style={{ alignSelf: "flex-end" }}>{currentUser?.displayName}</span> : ""}
+                    <div> {currentUser?.displayName ? <span style={{ alignSelf: "center" }}>{currentUser?.displayName}</span> : <span style={{ alignSelf: "flex-end" }}>{currentUser?.email}</span>}
                         <IconButton
                             size="large"
                             aria-label="account of current user"
