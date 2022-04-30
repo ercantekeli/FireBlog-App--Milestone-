@@ -21,7 +21,7 @@ export default function Navbar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
 
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
+
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
