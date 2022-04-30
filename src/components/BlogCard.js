@@ -41,7 +41,7 @@ export default function BlogCard({ item }) {
 
     const handleClick = () => {
 
-        ((currentUser) ? (navigate("/details", { state: { item } })) : (navigate("/login"), Toastify("To see details, Please log in")))
+        return ((currentUser) ? (navigate("/details", { state: { item } })) : (navigate("/login"), Toastify("To see details, Please log in")))
 
     }
 
