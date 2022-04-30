@@ -29,7 +29,7 @@ export default function NewBlog() {
   const navigate = useNavigate();
   const [info, setInfo] = useState()
   const { AddNewBlog, UpdateBlog } = useContext(BlogContext);
-  const { signUpProvider } = useContext(AuthContext);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
