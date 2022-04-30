@@ -115,7 +115,7 @@ const Details = () => {
                     </IconButton>
                     <span>1</span>
                 </CardActions>
-                {(currentUser.email) == (item.author) ?
+                {(currentUser.email) === (item.author) ?
                     <>
                         <Stack direction="row" spacing={2} style={{ display: "flex", justifyContent: "space-evenly" }}>
                             <Button variant="contained" color="primary" onClick={handleUpdate}>Update</Button>

@@ -6,7 +6,6 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import blog from "../assets/blog.png"
-import { signIn, signUpProvider } from '../contexts/AuthContext';
 import { useState, useContext } from "react";
 // import { AddNewBlog } from '../contexts/BlogContext';
 import { BlogContext } from '../contexts/BlogContext';
@@ -43,14 +42,6 @@ export default function NewBlog() {
     }
 
   };
-
-  const handleProviderLogIn = () => {
-    signUpProvider(navigate)
-  }
-
-  const editBlog = (id, title, imageURL, content) => {
-    setInfo({ id, title, imageURL, content })
-  }
 
   const handleChange = (e) => {
     e.preventDefault();

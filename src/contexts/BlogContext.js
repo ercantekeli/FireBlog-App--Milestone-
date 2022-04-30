@@ -58,7 +58,7 @@ const BlogContextProvider = ({ children }) => {
     //!veri Silme
     const DeleteBlog = (id) => {
         const database = getDatabase();
-        const blogRef = ref(database, "milestone");
+
 
         remove(ref(database, "milestone/" + id))
         Toastify("Blog Deleted")

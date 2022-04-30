@@ -1,7 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import AppRouter from './app-router/AppRouter';
 import AuthContextProvider from './contexts/AuthContext';
-import BlogContextProvider, { BlogContext } from './contexts/BlogContext';
+import BlogContextProvider from './contexts/BlogContext';
 
 
 
