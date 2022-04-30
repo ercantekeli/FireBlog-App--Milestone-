@@ -22,7 +22,7 @@ export default function Navbar() {
 
 
 
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+
 
 
     const handleMenu = (event) => {

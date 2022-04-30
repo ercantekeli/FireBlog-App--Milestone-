@@ -9,9 +9,7 @@ const AuthContextProvider = ({ children }) => {
 
     const [currentUser, setCurrentUser] = useState()
 
-    useEffect(() => {
-        userObserver(setCurrentUser)
-    }, [])
+
 
     // Initialize Firebase Authentication and get a reference to the service
     const auth = getAuth(app);
@@ -80,6 +78,10 @@ const AuthContextProvider = ({ children }) => {
                 console.log(error)
             });
     }
+
+    useEffect(() => {
+        userObserver(setCurrentUser)
+    }, [])
 
 
     return (
