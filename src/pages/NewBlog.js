@@ -60,7 +60,7 @@ export default function NewBlog() {
 
   return (
     <div style={style}>
-      <Container component="main" maxWidth="xs" style={{ borderRadius: "10px", boxShadow: "rgba(0, 0, 0, 0.75) 10px 10px 5px 2px", backgroundColor: "#fff", position: "relative" }}>
+      <Container component="main" maxWidth="xs" style={{ borderRadius: "10px", boxShadow: "rgba(0, 0, 0, 0.5) 10px 10px 5px 0px", backgroundColor: "#fff", position: "relative" }}>
         {/* <CssBaseline /> */}
         <Box
           sx={{
@@ -103,7 +103,7 @@ export default function NewBlog() {
               <TextField
                 margin="normal"
                 multiline
-                minRows={10}
+                maxRows={10}
                 required
                 fullWidth
                 name="content"
