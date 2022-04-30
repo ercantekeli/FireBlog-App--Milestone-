@@ -4,6 +4,7 @@ import BlogCard from '../components/BlogCard'
 import { useContext } from "react"
 import { BlogContext } from '../contexts/BlogContext';
 import loadingGif from "../assets/loading.gif"
+import { fontSize } from '@mui/system';
 
 const Dashboard = () => {
   const { BlogFetch } = useContext(BlogContext);
@@ -13,7 +14,7 @@ const Dashboard = () => {
   // console.log(blogList)
   return (
     <div>
-      <h1 className="dash-text" style={{ textAlign: "center", width: "100%" }}>──── Dashboard ────</h1>
+      <h1 className="dash-text" style={{ textAlign: "center", fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.5rem', xl: "20rem" } }}>──── Dashboard ────</h1>
       <div
         style={{
           display: "flex",
