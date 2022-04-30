@@ -5,6 +5,7 @@ import { useContext } from "react"
 import { BlogContext } from '../contexts/BlogContext';
 import loadingGif from "../assets/loading.gif"
 import { fontSize } from '@mui/system';
+import Typography from '@mui/material/Typography';
 
 const Dashboard = () => {
   const { BlogFetch } = useContext(BlogContext);
@@ -14,7 +15,9 @@ const Dashboard = () => {
   // console.log(blogList)
   return (
     <div>
-      <h1 className="dash-text" style={{ textAlign: "center", fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.5rem', xl: "20rem" } }}>──── Dashboard ────</h1>
+      <Typography sx={{ textAlign: "center", fontSize: { xs: '0.9rem', xl: "1.5rem" }, fontFamily: "inherit" }}>
+        <h1 className="dash-text" >──── Dashboard ────</h1>
+      </Typography>
       <div
         style={{
           display: "flex",

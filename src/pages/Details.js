@@ -51,7 +51,10 @@ const Details = () => {
     };
     return (
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-            <h1 className="dash-text" style={{ textAlign: "center" }}>──── Details ────</h1>
+            <Typography sx={{ textAlign: "center", fontSize: { xs: '0.9rem', xl: "1.5rem" }, fontFamily: "inherit" }}>
+                <h1 className="dash-text" style={{ textAlign: "center" }}>──── Details ────</h1>
+            </Typography>
+
             <Card sx={{ width: "80%", height: "80%" }}>
                 <CardMedia
                     component="img"
