@@ -9,7 +9,7 @@ import blog from "../assets/blog.png"
 import { useState, useContext } from "react";
 // import { AddNewBlog } from '../contexts/BlogContext';
 import { BlogContext } from '../contexts/BlogContext';
-import { AuthContext } from '../contexts/AuthContext';
+// import { AuthContext } from '../contexts/AuthContext';
 
 
 

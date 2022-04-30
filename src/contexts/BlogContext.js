@@ -69,11 +69,10 @@ const BlogContextProvider = ({ children }) => {
     const UpdateBlog = (info) => {
         const database = getDatabase();
         const updates = {};
+        Toastify("Blog Updated")
 
         updates["milestone/" + info.id] = info;
         return update(ref(database), updates)
-        Toastify("Blog Updated")
-
     }
 
 
