@@ -32,7 +32,7 @@ export default function Navbar() {
     const handleClose = () => {
         setAnchorEl(null);
     };
-
+    const name = "<Ercan/>"
     return (
         <Box sx={{ flexGrow: 1 }} >
             <AppBar position="static" >
@@ -48,7 +48,7 @@ export default function Navbar() {
                         <img src={ErcanLogo} alt="ercan logo" style={{ width: "4rem", height: "4rem" }} />
                     </IconButton>
                     <Typography onClick={() => navigate("/")} style={{ margin: "auto", display: "block", cursor: "pointer", position: "static" }} variant="h6" component="div" >
-                        <h2 ><span style={{ color: "#F5DEB3", fontFamily: "Girassol" }}> Ercan</span> Blog</h2>
+                        <h2 ><span style={{ color: "#F5DEB3", fontFamily: "Girassol" }}> {name}</span> Blog</h2>
                     </Typography>
                     <Typography sx={{ display: { xs: 'none', sm: 'none', md: 'none' } }}>
                         {currentUser?.displayName ? <span style={{ position: "absolute", right: "5rem", top: "2.5rem" }}>{currentUser?.displayName}</span> : ""}
@@ -88,7 +88,7 @@ export default function Navbar() {
                                 <MenuItem
                                     onClick={() => {
                                         navigate("/profile");
-                                        setAnchorElUser(null);
+                                        setAnchorEl(null);
                                     }}
                                 >
                                     <Typography textAlign="center">Profile</Typography>
@@ -96,7 +96,7 @@ export default function Navbar() {
                                 <MenuItem
                                     onClick={() => {
                                         navigate("/newblog");
-                                        setAnchorElUser(null);
+                                        setAnchorEl(null);
                                     }}
                                 >
                                     <Typography textAlign="center">New Blog</Typography>
@@ -105,7 +105,7 @@ export default function Navbar() {
                                     onClick={() => {
                                         logOut();
                                         navigate("/");
-                                        setAnchorElUser(null);
+                                        setAnchorEl(null);
                                     }}
                                 >
                                     <Typography textAlign="center">Logout</Typography>
@@ -116,7 +116,7 @@ export default function Navbar() {
                                 <MenuItem
                                     onClick={() => {
                                         navigate("/login");
-                                        setAnchorElUser(null);
+                                        setAnchorEl(null);
                                     }}
                                 >
                                     <Typography textAlign="center">Login</Typography>
@@ -124,7 +124,7 @@ export default function Navbar() {
                                 <MenuItem
                                     onClick={() => {
                                         navigate("/register");
-                                        setAnchorElUser(null);
+                                        setAnchorEl(null);
                                     }}
                                 >
                                     <Typography textAlign="center">Register</Typography>
