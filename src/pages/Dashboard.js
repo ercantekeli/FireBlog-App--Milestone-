@@ -20,7 +20,7 @@ const Dashboard = () => {
           flexWrap: "wrap",
           gap: "1rem",
           // margin: "3rem",
-          justifyContent: "center",
+          justifyContent: "center"
         }}
       >
         {isLoading ? <img src={loadingGif} alt="loading gif" /> : <>

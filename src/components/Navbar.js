@@ -37,7 +37,7 @@ export default function Navbar() {
     return (
         <Box sx={{ flexGrow: 1 }} >
             <AppBar position="static" >
-                <Toolbar style={{ backgroundColor: "#046582", display: "flex", justifyContent: "space-between" }}>
+                <Toolbar style={{ backgroundColor: "#003249", display: "flex", justifyContent: "space-between" }}>
                     <IconButton
                         size="large"
                         edge="start"
@@ -46,7 +46,7 @@ export default function Navbar() {
                         sx={{ mr: 2 }}
                         onClick={() => navigate("/")}
                     >
-                        <img src={ErcanLogo} alt="ercan logo" style={{ width: "5rem", height: "5rem" }} />
+                        <img src={ErcanLogo} alt="ercan logo" style={{ width: "4rem", height: "4rem" }} />
                     </IconButton>
                     <Typography onClick={() => navigate("/")} style={{ margin: "auto", display: "block", cursor: "pointer", position: "static" }} variant="h6" component="div" >
                         <h2 ><span style={{ color: "#F5DEB3", fontFamily: "Girassol" }}> Ercan</span> Blog</h2>
@@ -64,7 +64,7 @@ export default function Navbar() {
                         onClick={handleMenu}
                         color="inherit"
                     >
-                        <AccountCircle />
+                        <AccountCircle sx={{ width: "2rem", height: "2rem" }} />
 
                     </IconButton>
                     <Menu
@@ -81,6 +81,8 @@ export default function Navbar() {
                         }}
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
+
+
                     >
                         {currentUser ? (
                             <div>
