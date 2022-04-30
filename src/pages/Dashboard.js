@@ -13,7 +13,7 @@ const Dashboard = () => {
   // console.log(blogList)
   return (
     <div>
-      <h1 className="dash-text" style={{ textAlign: "center" }}>──── Dashboard ────</h1>
+      <h1 className="dash-text" style={{ textAlign: "center", width: "100%" }}>──── Dashboard ────</h1>
       <div
         style={{
           display: "flex",
